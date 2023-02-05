@@ -91,27 +91,54 @@
 
 /*################################### Работа с датами ################################### */
 
-const now = new Date();
+// const now = new Date();
 
-console.log(now.setHours(19));
-console.log(now);
+// console.log(now.setHours(19));
+// console.log(now);
 
-// console.log(now.getFullYear());
-// console.log(now.getMonth());
-// console.log(now.getDate());
-// console.log(now.getDay());
-// console.log(now.getHours());
-// console.log(now.getUTCHours());
+// // console.log(now.getFullYear());
+// // console.log(now.getMonth());
+// // console.log(now.getDate());
+// // console.log(now.getDay());
+// // console.log(now.getHours());
+// // console.log(now.getUTCHours());
 
-// console.log(now.getTimezoneOffset());
-// console.log(now.getTime());
+// // console.log(now.getTimezoneOffset());
+// // console.log(now.getTime());
 
-let start = new Date();
+// let start = new Date();
 
-for (let i = 0; i < 100000; i++) {
-    let some = i ** 3;
-}
+// for (let i = 0; i < 100000; i++) {
+//     let some = i ** 3;
+// }
 
-let end = new Date();
+// let end = new Date();
 
-alert(`Цикл отработал за ${end - start} миллисекунд`);
+// alert(`Цикл отработал за ${end - start} миллисекунд`);
+
+/*###################################  Параметры документа, окна и работа с ними. ################################### */
+
+const box = document.querySelector('.box'),
+      btn = document.querySelector('button');
+
+// const width = box.clientWidth;
+// const height = box.clientHeight;
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
+const width = box.scrollWidth;
+const height = box.scrollHeight;
+
+console.log(width, height);
+
+btn.addEventListener('click', () => {
+    box.style.height = box.scrollHeight + 'px';
+    console.log(box.scrollTop);
+});
+
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box);
+
+console.log(style.display);
+
+console.log(document.documentElement.scrollTop);
