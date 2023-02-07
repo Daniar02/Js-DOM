@@ -249,36 +249,102 @@
 // console.log(double(2));
 
 /*################################### Классы (ES6) ################################### */
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
+// class Rectangle {
+//     constructor(height, width) {
+//         this.height = height;
+//         this.width = width;
+//     }
 
-    calcArea() {
-        return this.height * this.width;
-    }
-}
+//     calcArea() {
+//         return this.height * this.width;
+//     }
+// }
 
-class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        super(height, width);
-        this.text = text;
-        this.bgColor = bgColor;
-    }
+// class ColoredRectangleWithText extends Rectangle {
+//     constructor(height, width, text, bgColor) {
+//         super(height, width);
+//         this.text = text;
+//         this.bgColor = bgColor;
+//     }
 
-    showMyProps() {
-        console.log(`Текст: ${this.text}, Цвет: ${this.bgColor}`);
-    }
-}
+//     showMyProps() {
+//         console.log(`Текст: ${this.text}, Цвет: ${this.bgColor}`);
+//     }
+// }
 
-const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
+// const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
 
-div.showMyProps();
-console.log(div.calcArea);
+// div.showMyProps();
+// console.log(div.calcArea);
 
-// const square = new Rectangle(10, 10);
-// const long = new Rectangle(20, 100);
+// // const square = new Rectangle(10, 10);
+// // const long = new Rectangle(20, 100);
 
-// console.log(long.calcArea());
-// console.log(square.calcArea());
+// // console.log(long.calcArea());
+// // console.log(square.calcArea());
+
+/*################################### Задачи 01 ################################### */
+// function num(c) {
+//      return c.length >= 6 ? true : false;
+//
+// }
+// console.log(num('aj'));
+
+// const whitespace = ' '.split('');
+// function firstWord(text){
+//     for(var chr, result = '', i = 0; i < text.length; i++){
+//         chr = text.charAt(i);
+//         if (whitespace.includes(chr.toLowerCase()))
+//             break;
+//          else
+//             result += chr;
+//     }
+//     return result;
+// }
+// console.log(firstWord("Nuraultan Daniar"));
+
+// function revString(a) {
+//     return a.split('').reverse().join("");
+// }
+// console.log(revString('Hello World'));
+
+// function getlength(number) {
+//     return number.toString().length;
+//   }
+//   console.log(getlength(100));
+
+// function isAllUpper(a) {
+//     if (a === a.toUpperCase() && a === " ") {
+//         console.log(true);
+//     } else if(a === a.toLowerCase()) {
+//         console.log(false);
+//     }
+
+// }
+// isAllUpper('');
+
+
+// function isAllUpper(text) {
+//     if (text === text.toUpperCase() || text === ""  || text === " "){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// function betweenMarkers(text, begin, end) {
+//     return text.slice(text.indexOf(begin) + 1, text.indexOf(end));
+//   }
+
+// function firstWord(world) {
+//     // const worlds = world.split(' ');
+//     // const first = worlds.slice(0,1);
+//     // if (first[0] === '') {
+//     //
+//     // }
+//     // console.log();
+//
+//     return world.split(' ').slice(0,1)[0];
+// }
+//
+// console.log(firstWord('Hello world'));
