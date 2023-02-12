@@ -582,8 +582,73 @@
 // console.log(Math.random())
 
 // 4 Example
-function getRandomBetween(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-  
-  console.log(getRandomBetween(10, 42));
+// function getRandomBetween(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+//   }
+//
+//   console.log(getRandomBetween(10, 42));
+
+// ############################ Работа с DOM ############################
+
+const btn = document.querySelector("button"),
+    btn2 = document.querySelector(".btn2"),
+    btn3 = document.querySelector(".btn3");
+
+setTimeout(() => {
+    addStylesTo(btn, "JavaScript", "yellow",  "black", );
+},1500);
+
+setTimeout(() => {
+    addStylesTo(btn2, "Практикуйся", "yellow", "red");
+},2500);
+
+setTimeout(() => {
+    addStylesTo(btn3, "И все получиться", 'blue', "yellow", "14px");
+},3500);
+
+function  addStylesTo(node, text, color, bg, fontSize) {
+    node.textContent = text;
+    node.style.color = color;
+    node.style.textAlign = "center";
+    node.style.backgroundColor = bg;
+    if (fontSize) {
+        node.style.fontSize = fontSize;
+    }
+}
+btn.addEventListener("click", () => {
+    if (btn.style.color === "red") {
+        btn.style.color = "#000";
+        btn.style.background = "#fff";
+    } else {
+        btn.style.color = "red";
+        btn.style.background = "#000";
+    }
+});
+btn2.addEventListener("dblclick", () => {
+    if (btn2.style.color === "red") {
+        btn2.style.color = "#000";
+        btn2.style.background = "#fff";
+    } else {
+        btn2.style.color = "red";
+        btn2.style.background = "#000";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
