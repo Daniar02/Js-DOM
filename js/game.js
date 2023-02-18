@@ -44,3 +44,19 @@ while (remainingLetters > 0) {
 // Отображаем ответ и поздравляем игрока
 alert(answerArray.join(" "));
 alert("Отлично! Было загадано слова " + word);
+
+// Делаем генератор дразнилок функцией
+function  pickRandomWord(words) {
+    return words[Math.floor(Math.random() * words.length)];
+}
+const generateRandomInsult = function () {
+    const randomBodyParts = ["глаз", "нос", "череп"];
+    const randomAdjectives = ["вонючая", "унылая", "дурацкая"];
+    const randomWords = ["муха", "выдра", "дубина", "мартышка", "крыса"];
+    const randomString = "У тебя " + pickRandomWord(randomBodyParts) + " Словно " + pickRandomWord(randomAdjectives) +
+        " " + pickRandomWord(randomWords);
+    return randomString;
+};
+console.log(generateRandomInsult());
+console.log(generateRandomInsult());
+console.log(generateRandomInsult());
