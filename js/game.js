@@ -161,3 +161,109 @@
 // console.log(Object.keys(movies));
 // // console.log(movies["Гарри Поттер и Кубок огня"].actors[0]);
 //
+
+
+// Пишем игру "Змейка": Часть 1
+// Структура игры "Псевдокод"
+/*
+    Настроить "холст"
+    Установить счет игры в 0.
+    Создать змейку.
+    Создать яблоко.
+    Каждые 1000 миллисекунд {
+        Очистить "холст"
+        Напечатать текущий счет игры.
+        Сдвинуть змейку в текущий направлении
+        Если змейка столкнулась со стеной или своим хвостом {
+            Закончить игру.
+        } Иначе Если змейка съела яблоко {
+            Увеличить счет на 1.
+            Переместить яблоко на новое место.
+            Увеличить длину змейка
+        }
+        Для каждого сегмента тело змейки {
+            Нарисовать сегмент.
+        }
+        Нарисовать яблоко.
+        Нарисовать рамку
+    }
+    Когда игрок нажмет клавишу {
+        Если это клавиша-стрелка {
+            Обновить направление движения змейки
+        }
+    }
+*/
+
+// Определяем переменные canvas, ctx, width и height
+// Настройки "холста"
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+// Получаем ширину и высоту элемента canvas
+const width = canvas.width;
+const height = canvas.height;
+
+// Делим "холст" на ячейки.
+// Вычисляем ширину и высоту в ячейках
+const blockSize = 10;
+const widthInBlocks = width / blockSize;
+const heightInBlocks = height / blockSize;
+
+// Переменный score.
+// Устанавливаем счет 0
+let score = 0;
+
+// Рисуем рамку
+const drawBorder = function () {
+    ctx.fillStyle = "Gray";
+    ctx.fillRect(0, 0, width, blockSize); // Верхнюю часть рамки
+    ctx.fillRect(0, height - blockSize, width, blockSize); // Нижнюю часть рамки 400-10=390
+    ctx.fillRect(0, 0, blockSize, height); // Левую часть рамки
+    ctx.fillRect(width - blockSize, 0, blockSize, height); // правую часть рамки 400-10=390
+
+    // // Задаем размер и шрифт
+    // ctx.textBaseline = "top";
+    // ctx.fillText("Привет, мир!", 50, 50);
+    //
+    // ctx.font = "20px Courier";
+    // ctx.fillText("Courier", 50, 70);
+    //
+    // ctx.font = "24px Comic Sans MS";
+    // ctx.fillText("Comic Sans", 50, 100);
+    //
+    // ctx.font = "18px Arial";
+    // ctx.fillText("Arial", 50, 150);
+};
+
+// Пишем функцию drawScore.
+// Выводим счет игры в левом верхнем углу
+const drawScore = function () {
+    ctx.font = "20px Courier";
+    ctx.fillStyle = "Black";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    ctx.fillText("Счет: " + score, blockSize, blockSize);
+};
+
+// Конец игры.
+// Отменяем действие setInterval и печатаем сообщение "Конец игры"
+const gameOver = function () {
+    clearInterval(intervalId);
+    ctx.font = "60px Courier";
+    ctx.fillStyle = "Black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("Конец игры", width / 2, height / 2);
+};
+
+// Рисуем окружность (используя функция из главы 14)
+const circle = function (x, y, radius, fillCircle) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    if (fillCircle) {
+        ctx.fill();
+
+    } else {
+        ctx.stroke();
+    }
+};
